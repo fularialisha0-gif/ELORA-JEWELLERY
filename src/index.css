@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-burgundy-950: #12060A;
+  --color-burgundy-900: #1C090F;
+  --color-burgundy-800: #2A0F18;
+  --color-burgundy-700: #3E1623;
+  --color-obsidian: #0B0507;
+  --color-rose-gold: #D8A384;
+  --color-rose-gold-light: #E8C5B0;
+  --color-champagne: #F3EAE0;
+  --color-champagne-muted: #DECBB8;
+  --color-ivory: #F7F1EB;
+  --color-ivory-muted: #C7B6AE;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #12060A;
+    color: #F7F1EB;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #12060A;
+    color: #F7F1EB;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  /* Custom subtle luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #12060A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(216, 163, 132, 0.28);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(216, 163, 132, 0.5);
+  }
+}
+
+/* Smooth Ken Burns cinematic motion fallback for video-ready frames */
+@keyframes eloraKenBurns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(-1%, -0.8%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: eloraKenBurns 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ken-burns-paused {
+  animation: eloraKenBurns 22s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ken-burns {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

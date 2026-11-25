@@ -1,0 +1,6 @@
+{
+  "name": "ÉLORA — Beyond the Ordinary",
+  "description": "Haute joaillerie digital maison featuring interactive 3D diamond craftsmanship, bespoke ring customisation studio, and curated fine jewellery collections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
